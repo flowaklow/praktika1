@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dienas Pusdienas</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Dienas Pusdienas</h1>
+      <p>Atrodi tuvākos pusdienu piedāvājumus šodien!</p>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="location" class="section-container">
+      <h2>Jūsu atrašanās vieta</h2>
+      <button class="primary-button" onclick="getLocation()">Noskaidrot manu atrašanās vietu</button>
+      <p id="location-output"></p>
+    </section>
+
+
+    <section id="offers" class="section-container">
+      <h2>Šodienas piedāvājumi</h2>
+      <div id="offers-list">
+  
+      </div>
+    </section>
+
+
+    <section id="admin-panel" class="section-container">
+      <h2>Kafejnīcas administrācijas panelis</h2>
+      <form id="admin-form" onsubmit="submitOffer(event)">
+        <label>
+          Kafejnīcas nosaukums:
+          <input type="text" id="cafe-name" placeholder="Ievadiet kafejnīcas nosaukumu" required>
+        </label>
+        <label>
+          Dienas piedāvājums:
+          <input type="text" id="menu" placeholder="Ievadiet piedāvājumu" required>
+        </label>
+        <label>
+          Cena (EUR):
+          <input type="number" id="price" placeholder="0.00" step="0.01" required>
+        </label>
+        <label>
+          Platums (Latitude):
+          <input type="text" id="latitude" placeholder="atzīmējiet kartē" required readonly>
+        </label>
+        <label>
+          Garums (Longitude):
+          <input type="text" id="longitude" placeholder="atzīmējiet kartē" required readonly>
+        </label>
+        <button type="submit" class="primary-button">Pievienot piedāvājumu</button>
+      </form>
+    </section>
+
+
+    <section id="map-section" class="section-container">
+      <h2>Karte</h2>
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2024 Dienas Pusdienas | Veidots ar mīlestību 💛</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
